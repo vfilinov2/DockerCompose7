@@ -1,23 +1,22 @@
+
 version: '3.3'
 services:
   sbuild:
-    build: 
+    build:
       context: ./build
     volumes:
       - type: volume
         source: wardir
         target: /home/user/target
-
   sprod:
-    build: 
+    build:
       context: ./prod
     ports:
-      - "8080:8080"      
+      - "8080:8080"
     volumes:
       - type: volume
         source: wardir
-        target: /usr/local/tomcat/webapps
-
+        target: /var/lib/jetty/webapps
 volumes:
   wardir:
-#    - driver: local
+
